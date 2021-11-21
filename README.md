@@ -48,12 +48,12 @@ Proponuję więc następne 3 albo 4 weekendy (piątek sobota albo niedziela oboj
 Zobaczymy ile spotkań uda się zrobić. Tutaj załączam szybki poglądowy startowy schemat wyglądu projektu:
 
 <figure>
-    <center><img src="C:\Users\adamie2\Desktop\Studia\Semestr 5\Systemy wbudowane\Projekt-github\Rasberek\scheme.png" alt="Trulli" style="transform:rotate(-90deg); width:55%"></center>
+    <center><img src=".\Schematic\scheme.png" alt="Trulli" style="transform:rotate(-90deg); width:55%"></center>
     <figcaption align = "center"><b>Schemat podłączenia czujników do Raspberry pi (nie uwzględniłem kamery którą będziemy podłączać bezpośrednio do wejścia - następny rysunek ma podpisane połączenia)</b></figcaption>
 </figure>
 
 <figure>
-    <center><img src="C:\Users\adamie2\Desktop\Studia\Semestr 5\Systemy wbudowane\Projekt-github\Rasberek\scheme2.jpg" alt="Trulli" style="width:50%"></center>
+    <center><img src=".\Schematic\scheme2.jpg" alt="Trulli" style="width:50%"></center>
 <figcaption align = "center"><b</b></figcaption>
 </figure>
 
