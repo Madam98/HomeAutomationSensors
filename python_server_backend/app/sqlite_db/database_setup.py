@@ -1,19 +1,49 @@
 import sqlite3
 from sqlite3 import Error
+from sqlite_operations import sqlite_create_tables
+from os import path
 
 
-def create_connection(db_file):
+def get_root():
+    return path.dirname(path.dirname(__file__))
+
+
+# connect to the database file
+# or create a new database file
+def create_connection(db_path):
     conn = None
     try:
-        conn = sqlite3.connect(db_file)
+        conn = sqlite3.connect(db_path)
         print("Connected to the database file")
+        return conn
+
     except Error as e:
         print(e)
-    finally:
-        if conn:
-            conn.close()
+
+
+# execute all sqlite_create_tables sqlite commands defined in <sqlite_operations.py>
+def create_tables(conn):
+    if conn:
+        for sqlite_create in sqlite_create_tables.values():
+            try:
+                cursor = conn.cursor()
+                cursor.execute(sqlite_create)
+
+            except Error as e:
+                print(e)
+
+
+# close connection
+def close_connection(conn):
+    if conn:
+        conn.close()
 
 
 if __name__ == "__main__":
-    create_connection("sql_app.db")
+    print("database_setup!")
+    conn = create_connection(get_root() + "\\sqlite_db\\database.db")
+    create_tables(conn)
+    close_connection(conn)
+    print("database created!")
+
 

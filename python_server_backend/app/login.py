@@ -6,7 +6,7 @@
 from .api import app
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-from .sql_app.schemas import User, UserInDB
+from .sql_app.schemas.user import User, UserInDB
 
 fake_users_db = {
     "julia": {

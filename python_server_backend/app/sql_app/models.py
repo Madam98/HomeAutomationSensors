@@ -10,20 +10,24 @@ class User(Base):
     __tablename__ = "users"
 
     id = Column(Integer, primary_key=True, index=True)
-    username = Column(String)
     email = Column(String)
-    hashed_password = Column(String)
+    password = Column(String)
 
-    sensors = relationship("Sensor", back_populates="owner")
+    # # table relationships
+    # hum_temp_sensor = relationship("HumidityTemperatureSensor", back_populates="owner")
 
 
-class Sensor(Base):
-    __tablename__ = "sensors"
+class HumidityTemperatureSensor(Base):
+    __tablename__ = "humidity_temperature"
 
     id = Column(Integer, primary_key=True, index=True)
     date_time = Column(DateTime)
-    value = Column(Float)
-    user_id = Column(Integer, ForeignKey("users.id"))
+    humidity = Column(Float)
+    temperature = Column(Float)
 
-    owner = relationship("User", back_populates="sensors")
+    # # foreign key
+    # user_id = Column(Integer, ForeignKey("users.id"))
+    #
+    # # table relationship
+    # owner = relationship("User", back_populates="hum_temp_sensor")
 
