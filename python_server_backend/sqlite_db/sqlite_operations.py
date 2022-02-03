@@ -12,4 +12,3 @@ sqlite_create_tables = {
                     temperature REAL); 
                 """
 }
-

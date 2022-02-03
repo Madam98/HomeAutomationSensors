@@ -40,10 +40,11 @@ def close_connection(conn):
 
 
 if __name__ == "__main__":
-    print("database_setup!")
-    conn = create_connection(get_root() + "\\sqlite_db\\database.db")
+    print("database_setup called!")
+    db_path = get_root() + "\\sqlite_db\\database.db"
+    conn = create_connection(db_path)
     create_tables(conn)
     close_connection(conn)
-    print("database created!")
+    print("database ready in:", db_path)
 
 

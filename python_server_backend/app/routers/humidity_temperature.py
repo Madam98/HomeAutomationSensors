@@ -2,9 +2,9 @@ from fastapi import Depends, Response, status, HTTPException, APIRouter
 from ..sql_app import models
 from ..sql_app.schemas import hum_temp_sensor
 from sqlalchemy.orm import Session
-from typing import List
+from sqlalchemy import desc
+from typing import List, Optional
 from ..dependencies import get_db
-
 
 # initialize API router with all the common traits
 router = APIRouter(
@@ -35,8 +35,16 @@ def add_new_record(request: hum_temp_sensor.HumTempAdd, db: Session = Depends(ge
 
 # show all humidity & temperature values
 @router.get("/", response_model=List[hum_temp_sensor.ShowHumTemp])
-def get_all_records(db: Session = Depends(get_db)):
-    return db.query(models.HumidityTemperatureSensor).all()
+def get_records(limit: Optional[int] = None, db: Session = Depends(get_db)):
+    hum_temp_model = models.HumidityTemperatureSensor
+    query_res = db.query(hum_temp_model)
+    res_len = query_res.count()
+    if limit:
+        return query_res.order_by(hum_temp_model.date_time).offset(res_len-limit).limit(limit).all()
+    else:
+        return query_res.order_by(hum_temp_model.date_time).all()
+
+
 
 
 

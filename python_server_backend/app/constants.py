@@ -1,3 +1,3 @@
-import os
+from os.path import dirname
 
-__ROOT__ = os.path.dirname(__file__)
+__ROOT__ = dirname(dirname(__file__))
