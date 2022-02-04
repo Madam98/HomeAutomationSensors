@@ -34,6 +34,7 @@ http://localhost:8000/docs
 - `hashing.py` - funkcje związane z haszowaniem w fastapi
 - `login.py` - funkcje i endpointy związane z logowaniem? (ale nie wiem czy wgl je teraz wykorzystuję... chyba jeszcze nie)
 - `requirements.txt` - lista bilbiotek wymaganych do uruchomienia aplikacji
+- `authentication.py` - wszelkie funkcje na potrzeby logowania/autoryzacji/haszowania i dekodowania haseł
 
 ### Baza danych: `python_server_backend\sqlite_db`:
 - `database.db` - plik bazy danych sqlite3
