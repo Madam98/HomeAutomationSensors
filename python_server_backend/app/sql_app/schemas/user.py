@@ -16,8 +16,8 @@ class UserBase(BaseModel):
 class UserCreate(UserBase):
     password: str
 
-
+# additional line that allows us to use this as an sqlalchemy response body formatter
 class ShowUser(UserBase):
-
+    password: str
     class Config:
         orm_mode = True

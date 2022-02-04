@@ -1,7 +1,9 @@
 from fastapi import BackgroundTasks, APIRouter
 
 
-router = APIRouter()
+router = APIRouter(
+    tags=["work-in-progress"]
+)
 
 
 def write_notification(email: str, message=""):

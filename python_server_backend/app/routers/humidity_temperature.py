@@ -5,6 +5,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import desc
 from typing import List, Optional
 from ..dependencies import get_db
+from ..constants import oauth2_scheme
 
 # initialize API router with all the common traits
 router = APIRouter(
@@ -22,7 +23,9 @@ router = APIRouter(
 
 # add a humidity & temperature record (for testing purposes)
 @router.post("/", status_code=status.HTTP_201_CREATED)
-def add_new_record(request: hum_temp_sensor.HumTempAdd, db: Session = Depends(get_db)):
+def add_new_record(request: hum_temp_sensor.HumTempAdd,
+                   token: str = Depends(oauth2_scheme),
+                   db: Session = Depends(get_db)):
     new_record = models.HumidityTemperatureSensor(
         date_time=request.date_time,
         humidity=request.humidity,
@@ -35,7 +38,9 @@ def add_new_record(request: hum_temp_sensor.HumTempAdd, db: Session = Depends(ge
 
 # show all humidity & temperature values
 @router.get("/", response_model=List[hum_temp_sensor.ShowHumTemp])
-def get_records(limit: Optional[int] = None, db: Session = Depends(get_db)):
+def get_records(token: str = Depends(oauth2_scheme),
+                limit: Optional[int] = None,
+                db: Session = Depends(get_db)):
     hum_temp_model = models.HumidityTemperatureSensor
     query_res = db.query(hum_temp_model)
     res_len = query_res.count()
