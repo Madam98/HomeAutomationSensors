@@ -1,7 +1,7 @@
-#Instrukcja obsługi aplikacji API
+# Instrukcja obsługi aplikacji API
 
 
-##Uruchamianie serwera API 🚀
+## Uruchamianie serwera API 🚀
 
 0. Jeśli używasz venva, aktywuj venva wpisując w terminalu komendę:
 `[ścieżka do folderu venv]\Scripts\activate`
@@ -20,9 +20,9 @@ Jeśli chcesz, żeby serwer automatycznie się odświeżał po wprowadzeniu zmia
 http://localhost:8000/docs
 
 
-##Struktura folderów 📁
+## Struktura folderów 📁
 
-###API: `python_server_backend\app`:
+### API: `python_server_backend\app`:
 
 - `routers\` - folder z "ruterami" endpointów dla poszczególnych czujników (ruter, czyli grupa endpointów wykorzystujących np. ten sam url, dzieląca ustawienia itp). Tutaj są zdefiniowane funkcje wykonywane po wpisaniu konkretnego URLa w przeglądarce np.
 - `sql_app\schemas\` - zbiór modelów biblioteki pydantic wykorzystywane w    fastapi do wysyłania i odbierania danych w konkretnym formacie (np. sposród danych użytkownika, chcemy odczytać tylko imię i email, ale nie hasło)
@@ -35,12 +35,12 @@ http://localhost:8000/docs
 - `login.py` - funkcje i endpointy związane z logowaniem? (ale nie wiem czy wgl je teraz wykorzystuję... chyba jeszcze nie)
 - `requirements.txt` - lista bilbiotek wymaganych do uruchomienia aplikacji
 
-###Baza danych: `python_server_backend\sqlite_db`:
+### Baza danych: `python_server_backend\sqlite_db`:
 - `database.db` - plik bazy danych sqlite3
 - `database_setup.py` - skrypt tworzący bazę i tabele
 - `sqlite_operations.py` - listy z poleceniami sql wykorzystywanymi do tworzenia bazy (np. **CREATE TABLE**)
 
-###Skrypty do obsługi czujników: `python_server_backend\???`:
+### Skrypty do obsługi czujników: `python_server_backend\???`:
 - TODO :)
 
 ## A działa to tak:
