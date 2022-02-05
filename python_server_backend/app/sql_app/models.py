@@ -31,3 +31,17 @@ class HumidityTemperatureSensor(Base):
     # # table relationship
     # owner = relationship("User", back_populates="hum_temp_sensor")
 
+class CO2Sensor(Base):
+    __tablename__ = "mq7"
+
+    id = Column(Integer, primary_key=True, index=True)
+    date_time = Column(DateTime)
+    co_value = Column(Float)
+    co_warning = Column(Integer)
+
+    # # foreign key
+    # user_id = Column(Integer, ForeignKey("users.id"))
+    #
+    # # table relationship
+    # owner = relationship("User", back_populates="hum_temp_sensor")
+

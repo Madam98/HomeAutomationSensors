@@ -1,10 +1,9 @@
 from fastapi import FastAPI, Depends
-from .routers import humidity_temperature, users, background, oauth2_token
+from .routers import humidity_temperature, co2, users, background, oauth2_token
 from .sql_app import models
 from .sql_app.database import engine
 from . import constants
 from os import system
-from fastapi.security import OAuth2PasswordBearer
 
 
 # make sure the database is created by running the db setup script
@@ -20,5 +19,6 @@ app = FastAPI()
 # include all endpoint routers in the app instance
 app.include_router(users.router)
 app.include_router(humidity_temperature.router)
+app.include_router(co2.router)
 app.include_router(background.router)
 app.include_router(oauth2_token.router)
