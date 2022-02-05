@@ -3,12 +3,12 @@
 import sqlite3
 from sqlite3 import Error
 from sqlite_operations import sqlite_create_tables
-from os import path
+from os.path import dirname, join
 
 
 
 def get_root():
-    return path.dirname(path.dirname(__file__))
+    return dirname(dirname(__file__))
 
 # connect to the database file
 # or create a new database file
@@ -43,7 +43,7 @@ def close_connection(conn):
 
 if __name__ == "__main__":
     print("database_setup called!")
-    db_path = get_root() + "/sqlite_db/database.db"
+    db_path = join(get_root(), "sqlite_db", "database.db")
     conn = create_connection(db_path)
     create_tables(conn)
     close_connection(conn)

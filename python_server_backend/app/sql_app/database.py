@@ -2,9 +2,10 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from .. import constants
+from os.path import join
 
 # Create a sqlite database URL for SQLAlchemy
-SQLALCHEMY_DATABASE_URL = "sqlite:///" + constants.__ROOT__ + "/sqlite_db/database.db"
+SQLALCHEMY_DATABASE_URL = "sqlite:///" + join(constants.__ROOT__, "sqlite_db", "database.db")
 
 # Create a SQLAlchemy engine
 engine = create_engine(

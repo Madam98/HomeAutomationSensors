@@ -4,11 +4,12 @@ from .sql_app import models
 from .sql_app.database import engine
 from . import constants
 from os import system
+from os.path import join
 
 
 # make sure the database is created by running the db setup script
 # run the database_setup script
-system(constants.__ROOT__ + "/sqlite_db/database_setup.py")
+system(join(constants.__ROOT__, "sqlite_db", "database_setup.py"))
 
 
 # global dependencies:
