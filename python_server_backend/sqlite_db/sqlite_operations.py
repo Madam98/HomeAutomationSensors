@@ -9,6 +9,13 @@ sqlite_create_tables = {
                     id INTEGER PRIMARY KEY,
                     date_time TEXT NOT NULL,
                     humidity REAL,
-                    temperature REAL); 
-                """
+                    temperature REAL);
+                """,
+    
+    "co2": """ CREATE TABLE IF NOT EXISTS mq7 (
+              id INTEGER PRIMARY KEY,
+              date_time TEXT NOT NULL,
+              co_value REAL,
+              co_warning INT);
+           """
 }

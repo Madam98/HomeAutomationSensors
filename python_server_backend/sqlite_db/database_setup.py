@@ -1,12 +1,14 @@
+#!/usr/bin/python
+
 import sqlite3
 from sqlite3 import Error
 from sqlite_operations import sqlite_create_tables
 from os import path
 
 
+
 def get_root():
     return path.dirname(path.dirname(__file__))
-
 
 # connect to the database file
 # or create a new database file
