@@ -9,7 +9,7 @@ from fastapi.security import OAuth2PasswordBearer
 
 # make sure the database is created by running the db setup script
 # run the database_setup script
-system(constants.__ROOT__ + "\\sqlite_db\\database_setup.py")
+system(constants.__ROOT__ + "/sqlite_db/database_setup.py")
 
 
 # global dependencies:
