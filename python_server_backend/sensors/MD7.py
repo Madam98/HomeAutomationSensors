@@ -97,9 +97,10 @@ def startMD7():
             
             #print("current" + str(conn))
             
-            print("Current CO AD vaule = " +str("%.2f"%((COlevel/1024.)*5))+" V")
+            #print("Current CO AD vaule = " +str("%.2f"%((COlevel/1024.)*5))+" V")
             conn.execute("INSERT INTO mq7 (date_time, co_value, co_warning) VALUES (?, ?, ?)", (current, result, 1 - GPIO.input(mq7_dpin)))
             conn.commit()
+            print("MQ7")
             print(conn.execute("SELECT id ,TIME(date_time), co_value, co_warning FROM mq7 ORDER BY ROWID DESC").fetchone())
             
             #if GPIO.input(mq7_dpin):

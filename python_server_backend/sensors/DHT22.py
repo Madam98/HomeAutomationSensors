@@ -1,5 +1,5 @@
 import Adafruit_DHT
-import board
+#import board
 import datetime
 import time
 import os.path
@@ -46,9 +46,10 @@ def startDHT22():
         humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
         current = datetime.datetime.now()
         if humidity is not None and temperature is not None:        
-            print("Temp={0:0.1f}*C  Humidity={1:0.1f}%".format(temperature, humidity))
+            #print("Temp={0:0.1f}*C  Humidity={1:0.1f}%".format(temperature, humidity))
             conn.execute("INSERT INTO humidity_temperature (date_time, humidity, temperature) VALUES (?, ?, ?)", (current, humidity, temperature))
             conn.commit()
+            print("DHT:")
             print(conn.execute("SELECT id ,TIME(date_time), temperature, humidity FROM humidity_temperature ORDER BY ROWID DESC").fetchone())
    
         else:

@@ -9,6 +9,7 @@ import threading
 import time
 import RPi.GPIO as GPIO
 import os.path
+from queue import Queue
 
 import sqlite3
 from sqlite3 import Error
@@ -43,10 +44,10 @@ def initGPIOMain():
 def runLED(name):
     LED.initLED();
     while(True):
-        logging.info("Thread %s: starting", name)
+        #logging.info("Thread %s: starting", name)
         #time.sleep(10)
         LED.startLED()
-        logging.info("Thread %s: finishing", name)
+        #logging.info("Thread %s: finishing", name)
 
 def runDHT22(name):
     #DHT22.initDHT22()
@@ -65,9 +66,9 @@ def runMD7(name):
 def runSEN0018(name):
     SEN0018.initSEN0018()
     while(True):
-        logging.info("Thread %s: starting", name)
+        #logging.info("Thread %s: starting", name)
         SEN0018.startSEN0018()
-        logging.info("Thread %s: finishing", name)
+        #logging.info("Thread %s: finishing", name)
         
 def runCAMERA(name):
     #while(True):
@@ -78,6 +79,7 @@ def runCAMERA(name):
 #def main():
     
 if __name__ == '__main__':
+    #sleep(30)
     format = "%(asctime)s: %(message)s"
     logging.basicConfig(format=format, level=logging.INFO, datefmt="%H:%M:%S")
     
@@ -85,6 +87,7 @@ if __name__ == '__main__':
     #conn = initSQLite()
     
     threads = list()
+    q = Queue()
     
     logging.info("LED : create thread %d", 1)
     led_thread = threading.Thread(target=runLED, args=(1,))
@@ -99,27 +102,21 @@ if __name__ == '__main__':
     time.sleep(0.5)
     
     logging.info("SEN0018 : create thread %d", 4)
-    SEN0018_thread = threading.Thread(target=runSEN0018, args=(4,))
+    SEN0018_thread = threading.Thread(target=runSEN0018, args=(q,))
     time.sleep(0.5)
     
     logging.info("CAMERA : create thread %d", 5)
-    CAMERA_thread = threading.Thread(target=runCAMERA, args=(5,))    
+    CAMERA_thread = threading.Thread(target=runCAMERA, args=(q,))    
     time.sleep(0.5)
     
     threads.append(led_thread)
     threads.append(DHT22_thread)
     threads.append(MD7_thread)
-    #threads.append(SEN0018_thread)
-    #threads.append(CAMERA_thread)
+    threads.append(SEN0018_thread)
+    threads.append(CAMERA_thread)
     
-    #led_thread.start()
+    led_thread.start()
     DHT22_thread.start()
     MD7_thread.start()
     SEN0018_thread.start()
     CAMERA_thread.start()
-    
-    
-    
-    
-    
-    
