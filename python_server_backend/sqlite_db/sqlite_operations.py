@@ -17,5 +17,9 @@ sqlite_create_tables = {
               date_time TEXT NOT NULL,
               co_value REAL,
               co_warning INT);
-           """
+           """,
+    "movement": """ CREATE TABLE IF NOT EXISTS movemenet (
+          id INTEGER PRIMARY KEY,
+          date_time TEXT NOT NULL);
+       """
 }

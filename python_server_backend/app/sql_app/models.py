@@ -39,9 +39,8 @@ class CO2Sensor(Base):
     co_value = Column(Float)
     co_warning = Column(Integer)
 
-    # # foreign key
-    # user_id = Column(Integer, ForeignKey("users.id"))
-    #
-    # # table relationship
-    # owner = relationship("User", back_populates="hum_temp_sensor")
+class MovementDetector(Base):
+    __tablename__ = "movement"
 
+    id = Column(Integer, primary_key=True, index=True)
+    date_time = Column(DateTime)

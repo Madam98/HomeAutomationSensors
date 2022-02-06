@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Depends
-from .routers import humidity_temperature, co2, users, background, oauth2_token
+from .routers import humidity_temperature, co2, movement, users, background, oauth2_token
 from .sql_app import models
 from .sql_app.database import engine
 from . import constants
@@ -21,5 +21,6 @@ app = FastAPI()
 app.include_router(users.router)
 app.include_router(humidity_temperature.router)
 app.include_router(co2.router)
+app.include_router(movement.router)
 app.include_router(background.router)
 app.include_router(oauth2_token.router)
