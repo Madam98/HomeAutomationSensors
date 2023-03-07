@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="_99">99%</string>
+    <string name="_21_c">21°C</string>
+    <string name="_555_ppm">555 ppm</string>
+    <string name="st_enie_co2">Stężenie CO2</string>
+    <string name="wilgotno">Wilgotność</string>
+</resources>
