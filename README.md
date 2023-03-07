@@ -21,17 +21,32 @@ The main goal of the project is to build a device for the user that will perform
 
 <figure>
     <center><img src=".\Images\build.png" alt="Trulli" style="width:50%"></center>
-<figcaption align = "center"><b</b></figcaption>
+<figcaption align = "center"><b></b></figcaption>
 </figure>
 
+# App
 In order to exchange and record information, a sqlite3 database was used and communication through an API was created  
 
+<figure>
+    <center><img src=".\Images\app.png" alt="Trulli" style="width:50%"></center>
+<figcaption align = "center"><b>View of application</b></figcaption>
+</figure>
 
+# Case
+In order to enclose all the sensors, a special enclosure has been made for this purpose
+<figure>
+    <center><img src=".\Images\blender1.png" alt="Trulli" style="width:50%"></center>
+<figcaption align = "center"><b></b></figcaption>
+</figure>
+<figure>
+    <center><img src=".\Images\blender2.png" alt="Trulli" style="width:50%"></center>
+<figcaption align = "center"><b></b></figcaption>
+</figure>
 
-
-
-
-
-
+# Result
+<figure>
+    <center><img src=".\Images\final.png" alt="Trulli" style="width:50%"></center>
+<figcaption align = "center"><b></b></figcaption>
+</figure>
 
 
